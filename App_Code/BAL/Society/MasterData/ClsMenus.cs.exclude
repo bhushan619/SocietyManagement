@@ -1,0 +1,175 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+using System.Data;
+using MySql.Data.MySqlClient;
+using System.Configuration;
+using SocietyKatta.DAL;
+using SocietyKatta.Basic;
+
+namespace SocietyKatta.App_Code.BAL.Society.MasterData
+{
+
+    /// <summary>
+    /// Summary description for ClsMenus
+    /// </summary>
+    public class ClsMenus : System.Web.UI.MasterPage
+    {
+        ClsDAL ObjDAL;
+        DataTable dt;
+        DataTable dtSubMenu;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sParentId"></param>
+        /// <param name="sCultureId"></param>
+        /// <returns></returns>
+        public DataTable FetchSubMenuWithParentId(int sParentId, int sCultureId)
+        {
+            using (ObjDAL = new ClsDAL())
+            {
+                string[] parameterNames = { "@spCultureId", "@spParentMenuId" };
+                string[] parameterValues = { Convert.ToString(sCultureId), Convert.ToString(sParentId) };
+
+                dt = ObjDAL.GetData("sp_select_SubMenuFromFeature", parameterNames, parameterValues);
+                if (dt != null)
+                {
+                    if (dt.Rows.Count > 0)
+                    {
+                        return dt;
+                    }
+                }
+                return dt;
+            }
+        }
+
+        public string GetMenu(int userId)
+        {
+            ClsDAL ObjDAL = new ClsDAL();
+            dt = new DataTable();
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            dt = ObjDAL.GetData("GetParentMenuByUserId", "@inUserId", Convert.ToString(userId));
+
+            if (dt != null)
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    //var mainMenus = from uu in dt.AsEnumerable()
+                    //            select new
+                    //            {
+                    //                ParentId = uu.Field<string>("ParentId"),
+                    //                FeatureId = uu.Field<string>("FeatureId"),
+                    //                FeatureName = uu.Field<string>("FeatureName"),
+                    //                PageName = uu.Field<string>("PageName"),
+                    //                SortOrder = uu.Field<string>("SortOrder")
+                    //            };
+
+                    //mainMenus.ToList().ForEach(s =>
+                    //{
+                    //    sb.Append(@"<li class='nav-parent'><a href='#'><i class='fa fa-plus-circle'></i><span>" + s.FeatureName + "</span></a>");
+                    //});
+
+                    //foreach (var menu in mainMenus)
+                    //{
+                    //    sb.Append("<li class='nav-parent'><a href='#'><i class='fa fa-plus-circle'></i><span>" + menu.FeatureName + "</span></a>");
+                    //    //Check main menu has submenu or not
+                    //    mainMenus.Where(c => c.FeatureId == menu.ParentId).ToList().Count();
+                    //}
+
+                    
+                    //string featureId = string.Empty;
+
+                    //for (int i = 0; i < dt.Rows.Count; i++)
+                    //{
+                    //    if (i != 0 && dt.Rows[i]["ParentId"].ToString() == "0")
+                    //        sb.Append(@"</ul></li>");
+
+                    //    if (dt.Rows[i]["ParentId"].ToString() == "0")
+                    //    {
+                    //        featureId = dt.Rows[i]["FeatureId"].ToString();
+                    //        //if (dt.Select("ParentId=" + featureId).Length > 1)
+                    //        sb.Append(@"<li class='nav-parent'><a href='#'><i class='fa fa-plus-circle'></i><span>" + dt.Rows[i]["FeatureName"].ToString() + "</span></a>");
+                    //        sb.Append(@"<ul class='nav nav-main'>");
+                    //    }
+                    //    else
+                    //    {
+                    //        sb.Append(@"<li><a href='" + dt.Rows[i]["PageName"].ToString() + "'><i class='fa fa-star'></i><span>" + dt.Rows[i]["FeatureName"].ToString() + "</span></a></li>");
+                    //    }
+                    //}
+
+                    Dictionary<int, string> items = MenuIcons.ParentMenuIcons();
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        var menuIcon = (from d in items
+                                        where d.Key == Convert.ToInt32(dt.Rows[i]["SortOrder"].ToString())
+                                    select d.Value).FirstOrDefault();
+
+                        if (dt.Rows[i]["SortOrder"].ToString() == "4")
+                            sb.Append("<li class='nav-parent'><a href='../Reports/'><i class='" + menuIcon + "'></i> <span>" + dt.Rows[i]["FeatureName"].ToString() + "</span></a>");
+                        else
+                            sb.Append("<li class='nav-parent'><a href='#'><i class='" + menuIcon + "'></i> <span>" + dt.Rows[i]["FeatureName"].ToString() + "</span></a>");
+
+                        //Check sub menu list
+                        if (dt.Rows[i]["SortOrder"].ToString() != "4")
+                        {
+                            dtSubMenu = ObjDAL.GetData("GetNavigationMenus", new string[] { "@inUserId", "@inFeatureId" }, new string[] { Convert.ToString(userId), dt.Rows[i]["FeatureId"].ToString() });
+                            if (dtSubMenu != null)
+                            {
+                                if (dtSubMenu.Rows.Count > 0)
+                                {
+                                    sb.Append("<ul class='nav nav-main'>");
+                                    for (int j = 0; j < dtSubMenu.Rows.Count; j++)
+                                    {
+                                        sb.Append("<li><a href='../" + dtSubMenu.Rows[j]["PageName"].ToString() + "'><i class='fa fa-genderless'></i><span>" + dtSubMenu.Rows[j]["FeatureName"].ToString() + "</span></a></li>");
+                                    }
+                                    sb.Append("</ul></li>");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+           return sb.ToString();
+        }
+
+        public string GetReportMenu(int userId)
+        {
+            ClsDAL ObjDAL = new ClsDAL();
+            dt = new DataTable();
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            dt = ObjDAL.GetData("GetReportParentMenusByUserId", "@inUserId", Convert.ToString(userId));
+
+            if (dt != null)
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        //Check sub menu list
+                        if (dt.Rows[i]["SortOrder"].ToString() != "4")
+                        {
+                            dtSubMenu = ObjDAL.GetData("GetNavigationMenus", new string[] { "@inUserId", "@inFeatureId" }, new string[] { Convert.ToString(userId), dt.Rows[i]["FeatureId"].ToString() });
+                            if (dtSubMenu != null)
+                            {
+                                if (dtSubMenu.Rows.Count > 0)
+                                {
+                                    sb.Append("<li class='nav-parent'><a href='#'><i class='fa fa-search'></i> <span>" + dt.Rows[i]["FeatureName"].ToString() + "</span></a>");
+                                    sb.Append("<ul class='nav nav-main'>");
+                                    for (int j = 0; j < dtSubMenu.Rows.Count; j++)
+                                    {
+                                        sb.Append("<li><a href='../" + dtSubMenu.Rows[j]["PageName"].ToString() + "'><i class='fa fa-genderless'></i> <span>" + dtSubMenu.Rows[j]["FeatureName"].ToString() + "</span></a></li>");
+                                    }
+                                    sb.Append("</ul></li>");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return sb.ToString();
+        }
+    }
+}

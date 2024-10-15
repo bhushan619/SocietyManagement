@@ -1,0 +1,59 @@
+1,0,Masters,Masters,1,31-05-2016,icon,1,1
+2,0,Society Details,Society Details,1,31-05-2016,icon,1,1
+3,0,Employee,Employee,1,31-05-2016,icon,1,1
+4,0,Invoices,Invoices,1,31-05-2016,icon,1,1
+5,0,Classified,Classified,1,31-05-2016,icon,1,1
+6,0,Events,Events,1,31-05-2016,icon,1,1
+7,0,Poll,Poll,1,31-05-2016,icon,1,1
+8,0,Notice Board,Notice Board,1,31-05-2016,icon,1,1
+9,0,Requests,Requests,1,31-05-2016,icon,1,1
+10,0,Group Discussion,~/Society/GD/GroupDiscussion.aspx,1,31-05-2016,icon,1,1
+11,0,Gallery,~/Society/Extras/Gallary.aspx,1,31-05-2016,icon,1,1
+12,0,Reports,~/Society/Reports/Reports.aspx,1,31-05-2016,icon,1,1
+13,0,View Notices,~/Society/Property/ViewNotices.aspx,1,31-05-2016,icon,1,1
+14,0,MyProperty,~/Society/Property/MyProperty.aspx,1,31-05-2016,icon,1,1
+15,0,Invoices,~/Society/Property/Invoices.aspx,1,31-05-2016,icon,1,1
+16,0,Generate Requests,~/Society/Property/Requests.aspx,1,31-05-2016,icon,1,1
+17,1,AddFeature,~/SK/MasterData/AddFeature.aspx,1,31-05-2016,icon,1,0
+18,1,VendorServices,~/SK/MasterData/VendorServices.aspx,1,31-05-2016,icon,1,0
+19,1,VendorServicesTypes,~/SK/MasterData/VendorServicesTypes.aspx,1,31-05-2016,icon,1,0
+20,1,VendorServiceSubTypes,~/SK/MasterData/VendorServiceSubTypes.aspx,1,31-05-2016,icon,1,0
+21,1,Add Society,~/SK/Society/AddSociety.aspx,1,31-05-2016,icon,1,0
+22,1,Add Vendor,~/SK/Vendor/AddVendor.aspx,1,31-05-2016,icon,1,0
+23,2,AddAccountType ,~/Society/Admin/MasterData/AddAccountType.aspx,1,31-05-2016,icon,1,1
+24,2,AddAssetFacility,~/Society/Admin/MasterData/AddAssetFacility.aspx',1,31-05-2016,icon,1,1
+25,2,AddComplaintsType,~/Society/Admin/MasterData/AddComplaintsType.aspx,1,31-05-2016,icon,1,1
+26,2,AddDepartment,~/Society/Admin/MasterData/AddDepartment.aspx,1,31-05-2016,icon,1,1
+27,2,AddDocumentType,~/Society/Admin/MasterData/AddDocumentType.aspx,1,31-05-2016,icon,1,1
+28,2,AddEmployeeType,~/Society/Admin/MasterData/AddEmployeeType.aspx,1,31-05-2016,icon,1,1
+29,2,AddEventType,~/Society/Admin/MasterData/AddEventType.aspx,1,31-05-2016,icon,1,1
+30,2,AddFlatAdditionalArea,~/Society/Admin/MasterData/AddFlatAdditionalArea.aspx,1,31-05-2016,icon,1,1
+31,2,AddFlatPremisesType,~/Society/Admin/MasterData/AddFlatPremisesType.aspx,1,31-05-2016,icon,1,1
+32,2,AddHelpline,~/Society/Admin/MasterData/AddHelpline.aspx,1,31-05-2016,icon,1,1
+33,2,AddNoticeType,~/Society/Admin/MasterData/AddNoticeType.aspx,1,31-05-2016,icon,1,1
+34,2,AddParkingLevel,~/Society/Admin/MasterData/AddParkingLevel.aspx,1,31-05-2016,icon,1,1
+35,2,AddParkingSlot,~/Society/Admin/MasterData/AddParkingSlot.aspx,1,31-05-2016,icon,1,1
+36,2,AddRoles,~/Society/Admin/MasterData/AddRoles.aspx,1,31-05-2016,icon,1,1
+37,2,AddSocietyWing,~/Society/Admin/MasterData/AddSocietyWing.aspx,1,31-05-2016,icon,1,1
+38,2,AddBankDetails,~/Society/Common/AddBankDetails.aspx,1,31-05-2016,icon,1,1
+39,2,AddUnitType  ,~/Society/Admin/MasterData/AddUnitType.aspx,1,31-05-2016,icon,1,1
+40,2,AddDocument,~/Society/Common/AddDocument.aspx,1,31-05-2016,icon,1,1
+41,2,AddProperty,~/Society/Admin/Property/AddProperty.aspx,1,31-05-2016,icon,1,1
+42,2,ViewProperty,~/Society/Admin/Property/ViewPropertyList.aspx,1,31-05-2016,icon,1,1
+43,2,AssignRoleFeatures,~/Society/Admin/Employee/AssignRoleFeatures.aspx,1,31-05-2016,icon,1,1
+44,2,AssignNotification,~/Society/Admin/Employee/AssignNotification.aspx,1,31-05-2016,icon,1,1
+45,2,InOutManager,~/Society/Admin/InOutManager.aspx,1,31-05-2016,icon,1,1
+46,2,AssignParking,~/Society/Admin/Property/AssignParking.aspx,1,31-05-2016,icon,1,1
+47,3,Add Employee,~/Society/Admin/Employee/AddEmployee.aspx,1,31-05-2016,icon,1,1
+48,3,View Empolyee ,~/Society/Admin/Employee/ViewEmpolyee.aspx,1,31-05-2016,icon,1,1
+49,4,Create Invoices,~/Society/Accounts/CreateInvoice.aspx,1,31-05-2016,icon,1,1
+50,4,View Invoices,~/Society/Accounts/Invoices.aspx,1,31-05-2016,icon,1,1
+51,5,Add Classified,~/Society/Extras/Classified.aspx,1,31-05-2016,icon,1,1
+52,5,ViewClassified,~/Society/View/ViewClassified.aspx,1,31-05-2016,icon,1,1
+53,6,Add Event,~/Society/Extras/EventAndAnouncement.aspx,1,31-05-2016,icon,1,1
+54,6,View Events,~/Society/View/ViewEventEnnouncement.aspx,1,31-05-2016,icon,1,1
+55,7,Add Poll,~/Society/Extras/Poll.aspx,1,31-05-2016,icon,1,1
+56,7,View Polls,~/Society/Property/ViewSelfPoll.aspx,1,31-05-2016,icon,1,1
+57,8,Add NoticeBoard Entry,~/Society/Extras/NoticeBoard.aspx,1,31-05-2016,icon,1,1
+58,8,View NoticeBoard,~/Society/View/ViewNoticeboard.aspx,1,31-05-2016,icon,1,1
+59,9,View Requests,~/Society/Admin/Property/Approvals.aspx,1,31-05-2016,icon,1,1

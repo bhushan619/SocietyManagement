@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="~/Home/Default.aspx" title="SocietyKatta : Home"  description="One stop solution for all Housing Services..">       
+      <siteMapNode url="~/Home/Blog.aspx" title="SocietyKatta : Blog"  description="Our Blog with latest updates.." />
+      <siteMapNode url="~/Home/Contact.aspx" title="SocietyKatta : Contact"  description="Contact us for all Housing Services.." />
+      <siteMapNode url="~/Home/Enquiry.aspx" title="SocietyKatta : Work With Us"  description="Want to be a vendor.. Send an enquiry.. We wil get back to you.." />
+      <siteMapNode url="~/Home/KattaManager.aspx" title="SocietyKatta : Katta Manager"  description="One stop solution for all Society Management Services.." />
+      <siteMapNode url="~/Home/KattaVendor.aspx" title="SocietyKatta : Katta Vendor"  description="One stop solution for all Vendor Management Services.." />
+      <siteMapNode url="~/Home/KattaHealthcare.aspx" title="SocietyKatta : Katta Healthcare"  description="One stop solution for all Healthcare Services.." />
+      <siteMapNode url="~/Home/CustomerProfile.aspx" title="SocietyKatta : Customer Profile"  description="Update Profile Details of Customer" />
+      <siteMapNode url="~/Home/FullBlogDetails.aspx" title="SocietyKatta : Blog"  description="Our Blog with latest updates.." />
+      <siteMapNode url="~/Home/KattaVendorList.aspx" title="SocietyKatta :  Katta Vendor"  description="One stop solution for all Vendor Management Services.." />
+      <siteMapNode url="~/Home/Order.aspx" title="SocietyKatta : Order"  description="Create new Order here.." />
+      <siteMapNode url="~/Home/OrderSummery.aspx" title="SocietyKatta : Order Summery"  description="Your Order Summary" />
+      <siteMapNode url="~/Home/PVendorProfile.aspx" title="SocietyKatta : Vendor Profile"  description="Vendors Profile" />
+      <siteMapNode url="~/Home/RescheduleOrder.aspx" title="SocietyKatta : Update/Reschedule Order"  description="Update/Reschedule Order" />
+      <siteMapNode url="~/Home/RetrievePassword.aspx" title="SocietyKatta : Retrieve Forgotton Password"  description="Retrieve Forgotton Password" />
+      <siteMapNode url="~/Home/ChangePassword.aspx" title="SocietyKatta : Change Password"  description="Change Password Here" />
+      <siteMapNode url="~/Home/SignUp.aspx" title="SocietyKatta : Register Here"  description="Register Here" />
+      <siteMapNode url="~/Home/SVendorProfile.aspx" title="SocietyKatta : Vendor Profile"  description="Vendors Profile" />
+      <siteMapNode url="~/Home/ViewOrders.aspx" title="SocietyKatta : View Your Orders"  description="View Your Orders" />
+      <siteMapNode url="~/Home/Login.aspx" title="SocietyKatta : Login"  description="Login to use the services" />
+      <siteMapNode url="~/SK/" title="SocietyKatta : Admin Login"  description="Login to use the features" />
+      <siteMapNode url="~/SK/Default.aspx" title="SocietyKatta : Admin Login"  description="Login to use the features" />
+    </siteMapNode>
+</siteMap>

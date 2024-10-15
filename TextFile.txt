@@ -1,0 +1,44 @@
+﻿
+
+
+SELECT tblsocietypersonnel.intId, tblsocietypersonnel.intSocietyId, tblsocietypersonnel.intEmpCode,
+ tblsocietypersonnel.intEmpType, 
+ CONCAT(tblsocietypersonnel.varEmpName, ' ( ', tblmasterdepartment.varDepartmentName, ' - ', rolesmasterculturemap.RoleName, ' )') AS Name, tblsocietypersonnel.varMbPrimary, tblsocietypersonnel.varMobile, tblsocietypersonnel.intIsActive, tblsocietypersonnel.varPrimaryEmail FROM tblsocietypersonnel INNER JOIN tblmasterdepartment ON tblsocietypersonnel.intDeptId = tblmasterdepartment.intId INNER JOIN rolesmasterculturemap ON tblsocietypersonnel.intRole = rolesmasterculturemap.RoleId WHERE (tblsocietypersonnel.intIsActive = 1)
+
+ empl details quere
+
+SELECT        tblsocietypersonnel.intId, tblsocietypersonnel.intDeptId AS DeptId, tblsocietypersonnel.intRole AS RoleId, tblsocietypersonnel.intEmpCode, 
+                         tblsocietypersonnel.intSocietyId, tblsocietypersonnel.intEmpType, tblsocietypersonnel.varEmpName, tblmasterdepartment.varDepartmentName, 
+                         rolesmasterculturemap.RoleName, countrymaster.CountryName, statemaster.StateName, citymaster.CityName, tblsocietypersonnel.varEmpPoliceVerify, 
+                         tblsocietypersonnel.varMaritalStatus, tblsocietypersonnel.varFatherHusband, tblsocietypersonnel.varSpouseName, tblsocietypersonnel.varDateOfJoin, 
+                         tblsocietypersonnel.varDOB, tblsocietypersonnel.varGender, tblsocietypersonnel.varMbOther, tblsocietypersonnel.varEmailOther, tblsocietypersonnel.varPANNo, 
+                         tblsocietypersonnel.varPFNo, tblsocietypersonnel.varESINo, tblsocietypersonnel.varPin, tblsocietypersonnel.varAddress, 
+                         tblsocietypersonnel.varPermanentAddress, tblsocietypersonnel.varPrimaryEmail, tblsocietypersonnel.varUsername, tblsocietypersonnel.varPassword, 
+                         tblsocietypersonnel.varImage, tblsocietypersonnel.varMobile, tblsocietypersonnel.varFBLink, tblsocietypersonnel.varGoogleLink, 
+                         tblsocietypersonnel.varTwitterLink, tblsocietypersonnel.intIsActive, tblsocietypersonnel.intCreatedBy, tblsocietypersonnel.varCreatedDate, 
+                         tblsocietypersonnel.varProviderName, tblsocietypersonnel.varContactPerson, tblsocietypersonnel.varContactPersonMbNo, 
+                         tblsocietypersonnel.varContactPersonAddress, tblsocietypersonnel.intCountry, tblsocietypersonnel.intState, tblsocietypersonnel.intCity, 
+                         tblsocietypersonnel.varMbPrimary
+FROM            tblsocietypersonnel INNER JOIN
+                         tblmasterdepartment ON tblsocietypersonnel.intDeptId = tblmasterdepartment.intId INNER JOIN
+                         rolesmasterculturemap ON tblsocietypersonnel.intRole = rolesmasterculturemap.RoleId INNER JOIN
+                         citymaster ON tblsocietypersonnel.intCity = citymaster.CityId INNER JOIN
+                         countrymaster ON tblsocietypersonnel.intCountry = countrymaster.CountryId INNER JOIN
+                         statemaster ON tblsocietypersonnel.intState = statemaster.StateId
+WHERE        (tblsocietypersonnel.intSocietyId = '1') AND (tblsocietypersonnel.intIsActive = 1)
+
+
+//////////////////////// Property single details ///////////
+
+SELECT        tblmastersocietywing.varWingName, tblmasterunittype.varUnitTypeName, tblmasterflatpremisestype.varFlatPremisesName, tblproperty.varPropertyId, 
+                         tblproperty.varSocietyId, tblproperty.intRoleId, tblproperty.intWingId, tblproperty.intPremisesUnitId, tblproperty.intPremisesTypeId, tblproperty.varPropertyCode, 
+                         tblproperty.varName, tblproperty.varExtensionNo, tblproperty.varAlternateAddress, tblproperty.varPhoneNo, tblproperty.varMobile, tblproperty.varAlternateMobile, 
+                         tblproperty.varEmail, tblproperty.varAlternateEmail, tblproperty.varUsername, tblproperty.varPassword, tblproperty.varCreatedDate, tblproperty.varCreatedBy, 
+                         tblproperty.intIsActive, tblpropertydetails.varDateofPurchase, tblpropertydetails.varArea, tblpropertydetails.varIsRenovated, tblpropertydetails.varCosting, 
+                         tblpropertydetails.varCurrency
+FROM            tblproperty INNER JOIN
+                         tblmastersocietywing ON tblproperty.intWingId = tblmastersocietywing.intId INNER JOIN
+                         tblmasterunittype ON tblproperty.intPremisesUnitId = tblmasterunittype.intId INNER JOIN
+                         tblmasterflatpremisestype ON tblproperty.intPremisesTypeId = tblmasterflatpremisestype.intId INNER JOIN
+                         tblpropertydetails ON tblproperty.varPropertyId = tblpropertydetails.varPropertyId
+

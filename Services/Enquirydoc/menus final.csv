@@ -1,0 +1,56 @@
+1,0,Masters,Masters,0,2016-05-31,1,1
+2,0,Society,Society,0,2016-05-31,1,1
+3,0,Vendors,Vendors,0,2016-05-31,1,1
+4,0,Admin,Admin,0,2016-05-31,1,1
+5,0,Employee,Employee,0,2016-05-31,1,1
+6,0,Property,Property,0,2016-05-31,1,1
+7,0,Accounts,Accounts,0,2016-05-31,1,1
+8,0,Extras,Extras,0,2016-05-31,1,1
+9,0,View,View,0,2016-05-31,1,1
+10,1,AddAccountType ,~/Society/Admin/MasterData/AddAccountType.aspx,1,2016-05-31,1,1
+11,1,AddAssetFacility,~/Society/Admin/MasterData/AddAssetFacility.aspx',1,2016-05-31,1,1
+12,1,AddComplaintsType,~/Society/Admin/MasterData/AddComplaintsType.aspx,1,2016-05-31,1,1
+13,1,AddDepartment,~/Society/Admin/MasterData/AddDepartment.aspx,1,2016-05-31,1,1
+14,1,AddDocumentType,~/Society/Admin/MasterData/AddDocumentType.aspx,1,2016-05-31,1,1
+15,1,AddEmployeeType,~/Society/Admin/MasterData/AddEmployeeType.aspx,1,2016-05-31,1,1
+16,1,AddEventType,~/Society/Admin/MasterData/AddEventType.aspx,1,2016-05-31,1,1
+17,1,AddFlatAdditionalArea,~/Society/Admin/MasterData/AddFlatAdditionalArea.aspx,1,2016-05-31,1,1
+18,1,AddFlatPremisesType,~/Society/Admin/MasterData/AddFlatPremisesType.aspx,1,2016-05-31,1,1
+19,1,AddHelpline,~/Society/Admin/MasterData/AddHelpline.aspx,1,2016-05-31,1,1
+20,1,AddNoticeType,~/Society/Admin/MasterData/AddNoticeType.aspx,1,2016-05-31,1,1
+21,1,AddParkingLevel,~/Society/Admin/MasterData/AddParkingLevel.aspx,1,2016-05-31,1,1
+22,1,AddParkingSlot,~/Society/Admin/MasterData/AddParkingSlot.aspx,1,2016-05-31,1,1
+23,1,AddRoles,~/Society/Admin/MasterData/AddRoles.aspx,1,2016-05-31,1,1
+24,1,AddSocietyWing,~/Society/Admin/MasterData/AddSocietyWing.aspx,1,2016-05-31,1,1
+25,1,AddUnitType  ,~/Society/Admin/MasterData/AddUnitType.aspx,1,2016-05-31,1,1
+26,1,AddFeature,~/SK/MasterData/AddFeature.aspx,1,2016-05-31,1,1
+27,1,VendorServices,~/SK/MasterData/VendorServices.aspx,1,2016-05-31,1,1
+28,1,VendorServicesTypes,~/SK/MasterData/VendorServicesTypes.aspx,1,2016-05-31,1,1
+29,1,VendorServiceSubTypes,~/SK/MasterData/VendorServiceSubTypes.aspx,1,2016-05-31,1,1
+30,2,Add Society,~/SK/Society/AddSociety.aspx,1,2016-05-31,1,1
+31,3,Add Vendor,~/SK/Vendor/AddVendor.aspx,1,2016-05-31,1,1
+32,4,Approvals,~/Society/Admin/Property/Approvals.aspx,1,2016-05-31,1,1
+33,4,InOutManager,~/Society/Admin/InOutManager.aspx,1,2016-05-31,1,1
+34,4,AssignNotification,~/Society/Admin/Employee/AssignNotification.aspx,1,2016-05-31,1,1
+35,5,AssignRoleFeatures,~/Society/Admin/Employee/AssignRoleFeatures.aspx,1,2016-05-31,1,1
+36,5,Add Employee,~/Society/Admin/Employee/AddEmployee.aspx,1,2016-05-31,1,1
+37,6,View Empolyee ,~/Society/Admin/Employee/ViewEmpolyee.aspx,1,2016-05-31,1,1
+38,6,AddProperty,~/Society/Admin/Property/AddProperty.aspx,1,2016-05-31,1,1
+39,6,ViewProperty,~/Society/Admin/Property/ViewPropertyList.aspx,1,2016-05-31,1,1
+40,6,MyProperty,~/Society/Property/MyProperty.aspx,1,2016-05-31,1,1
+41,6,AssignParking,~/Society/Admin/Property/AssignParking.aspx,1,2016-05-31,1,1
+42,7,Create Invoices,~/Society/Accounts/CreateInvoice.aspx,1,2016-05-31,1,1
+43,7,View Invoices,~/Society/Accounts/Invoices.aspx,1,2016-05-31,1,1
+44,7,Invoices,~/Society/Property/Invoices.aspx,1,2016-05-31,1,1
+45,8,AddBankDetails,~/Society/Common/AddBankDetails.aspx,1,2016-05-31,1,1
+46,8,AddDocument,~/Society/Common/AddDocument.aspx,1,2016-05-31,1,1
+47,8,Add Classified,~/Society/Extras/Classified.aspx,1,2016-05-31,1,1
+48,8,Add Event/Anouncement,~/Society/Extras/EventAndAnouncement.aspx,1,2016-05-31,1,1
+49,8,Add Gallary,~/Society/Extras/Gallary.aspx,1,2016-05-31,1,1
+51,8,Generate Requests,~/Society/Property/Requests.aspx,1,2016-05-31,1,1
+52,8,Add NoticeBoard Entry,~/Society/Extras/NoticeBoard.aspx,1,2016-05-31,1,1
+53,8,Add Poll,~/Society/Extras/Poll.aspx,1,2016-05-31,1,1
+54,9,ViewClassified,~/Society/View/ViewClassified.aspx,1,2016-05-31,1,1
+55,9,ViewEventAnnouncement,~/Society/View/ViewEventEnnouncement.aspx,1,2016-05-31,1,1
+56,9,View Polls,~/Society/Property/ViewSelfPoll.aspx,1,2016-05-31,1,1
+57,9,View Notices,~/Society/Property/ViewNotices.aspx,1,2016-05-31,1,1

@@ -1,0 +1,62 @@
+﻿
+//Sk admin menu file
+
+
+INSERT INTO `featuresmaster`(`FeatureId`, `ParentId`, `varFeatureName`, `PageName`, `isSubMenu`, `CreatedDate`, 
+
+`varIcon`, `SortOrder`, `IsActive`) VALUES
+
+
+ (1,0,'Masters','Masters',0,'2016-05-31 00:00:00','fa fa-cogs',1,1) 
+
+//(2, 1, 'AddRoles', '~/SK/MasterData/AddRoles.aspx', 1, '2016-06-16 00:00:00', '', 2, 1),
+//(3, 1, 'AddDepartment', '~/SK/MasterData/AddDepartment.aspx', 1, '2016-06-17 00:00:00', '', 3, 1)
+
+(4, 1, 'AddFeature', '~/SK/MasterData/AddFeature.aspx', 1, '2016-06-01 00:00:00', '', 4, 1),
+(5, 1, 'VendorServices', '~/SK/MasterData/VendorServices.aspx', 1, '2016-06-02 00:00:00', '', 5, 1),
+(6, 1, 'VendorServicesTypes', '~/SK/MasterData/VendorServicesTypes.aspx', 1, '2016-06-03 00:00:00', '', 6, 1),
+(7, 1, 'VendorServiceSubTypes', '~/SK/MasterData/VendorServiceSubTypes.aspx', 1, '2016-06-04 00:00:00', '', 7, 1),
+
+(8, 0, 'Accounting', 'Accounting', 0, '2016-06-19 00:00:00', 'fa fa-money', 8, 1),
+(9,8, 'Add Accounts', '~/SK/Accounts/AddAccountName.aspx', 1, '2016-06-20 00:00:00', '', 9, 1),
+(10, 8, 'Account Entries', '~/SK/Accounts/Entries.aspx', 1, '2016-06-21 00:00:00', '', 10, 1),
+(11, 8, 'Ledger', '~/SK/Accounts/Ledger.aspx', 1, '2016-06-22 00:00:00', '', 11, 1),
+(12, 8, 'Balance Sheet', '~/SK/Accounts/BalanceSheet.aspx', 1, '2016-06-23 00:00:00', '', 12, 1),
+
+(13, 0, 'Society Details', 'Society Details', 0, '2016-07-04 00:00:00', 'fa fa-home', 13, 1),
+
+(14, 13, 'Add Society', '~/SK/Society/AddSociety.aspx', 1, '2016-06-05 00:00:00', '', 14, 1),
+(15, 13, 'View Society', '~/SK/View/Viewsociety.aspx', 1, '2016-06-05 00:00:00', '', 15, 1),
+
+(16, 0, 'Vendor', 'Vendor', 0, '2016-07-04 00:00:00', 'fa fa-user', 16, 1),
+
+(17, 16, 'Add Vendor', '~/SK/Vendor/AddVendor.aspx', 1, '2016-06-06 00:00:00', '', 17, 1),
+(18, 16, 'View Vendor', '~/SK/Vendor/ViewVendor.aspx', 1, '2016-06-06 00:00:00', '', 18, 1),
+
+(19, 0, 'Invoices', 'Invoices', 0, '2016-07-01 00:00:00', 'fa fa-inr', 19, 1),
+(20, 19, 'Create Invoices', '~/SK/SocietyAccounts/CreateInvoice.aspx', 1, '2016-07-02 00:00:00', '', 20, 1),
+(21, 19, 'View Invoices', '~/SK/SocietyAccounts/Invoices.aspx', 1, '2016-07-03 00:00:00', '', 21, 1),
+
+(22, 0, 'Employee', 'Employee', 0, '2016-07-04 00:00:00', 'fa fa-user', 22, 1),
+(23, 22, 'AssignRoleFeatures', '~/SK/Employee/AssignRoleFeatures.aspx', 1, '2016-06-15 00:00:00', '', 23, 1),
+(24, 22, 'Add Employee', '~/SK/Employee/AddEmployee.aspx', 1, '2016-07-05 00:00:00', '', 24, 1),
+(25, 22, 'View Empolyee ', '~/SK/Employee/ViewEmpolyee.aspx', 1, '2016-07-06 00:00:00', '',25, 1),
+
+(26, 0, 'Report', '~/SK/Reports/Dashboard.aspx', 0, '2016-07-07 00:00:00', 'fa fa-pie-chart', 26, 1),
+
+(27, 0, 'Support', 'Support', 0, '2016-07-01 00:00:00', 'fa fa-inr',27, 1),
+(28, 27, 'Add Support', '~/SK/Support/Support.aspx', 1, '2016-06-06 00:00:00', '', 28, 1),
+(29, 27, 'View Support', '~/SK/View/ViewSupport.aspx', 1, '2016-06-06 00:00:00', '', 29, 1),
+
+
+(30, 0, 'Classified', '~/SK/View/ViewClassified.aspx', 0, '2016-06-05 00:00:00', 'fa fa-list-alt', 30, 1),
+(31, 0, 'Enquiry', '~/SK/View/ViewEnquiry.aspx', 0, '2016-06-05 00:00:00', 'fa fa-calendar', 31, 1),
+
+
+
+
+
+
+
+
+

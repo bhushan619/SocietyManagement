@@ -1,0 +1,245 @@
+\subsection{Table structure for table tblcheckedindetail}
+
+\begin{tabular}{|p{0.5in}|p{0.6in}|p{0.2in}|p{0.3in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+\textbf{\textit{CustomerId}} & int(11) & No &  \\ \hline 
+Name & varchar(80) & Yes & NULL \\ \hline 
+Address & varchar(100) & Yes & NULL \\ \hline 
+Phone & varchar(20) & Yes & NULL \\ \hline 
+RoomId & int(11) & Yes & NULL \\ \hline 
+CheckInDate & datetime & Yes & NULL \\ \hline 
+CheckInTime & varchar(20) & Yes & NULL \\ \hline 
+Advance & decimal(19,4) & Yes & NULL \\ \hline 
+Status & varchar(20) & Yes & NULL \\ \hline 
+Active & tinyint(3) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblcheckoutdetail}
+
+\begin{tabular}{|p{0.7in}|p{0.6in}|p{0.2in}|p{0.3in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+RoomId & int(11) & Yes & NULL \\ \hline 
+CustomerId & int(11) & Yes & NULL \\ \hline 
+Address & varchar(159) & Yes & NULL \\ \hline 
+Phone & varchar(20) & Yes & NULL \\ \hline 
+CheckInDate & varchar(50) & Yes & NULL \\ \hline 
+CheckInTime & varchar(20) & Yes & NULL \\ \hline 
+Advance & decimal(19,4) & Yes & NULL \\ \hline 
+FacilityCharge & decimal(19,4) & Yes & NULL \\ \hline 
+FoodCharge & decimal(19,4) & Yes & NULL \\ \hline 
+LaundaryCharge & decimal(19,4) & Yes & NULL \\ \hline 
+PhoneCharge & decimal(19,4) & Yes & NULL \\ \hline 
+CheckOutDate & datetime & Yes & NULL \\ \hline 
+CheckOutTime & varchar(20) & Yes & NULL \\ \hline 
+DayStay & int(11) & Yes & NULL \\ \hline 
+RoomCharge & decimal(19,4) & Yes & NULL \\ \hline 
+ExtraCharge & decimal(19,4) & Yes & NULL \\ \hline 
+TotalCharge & decimal(19,4) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblemployeedetail}
+
+\begin{tabular}{|p{0.5in}|p{0.6in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+\textbf{\textit{EmpId}} & int(11) & No &  \\ \hline 
+Name & varchar(60) & Yes & NULL \\ \hline 
+Address & varchar(150) & Yes & NULL \\ \hline 
+Phone & varchar(20) & Yes & NULL \\ \hline 
+Email & varchar(25) & Yes & NULL \\ \hline 
+DutyTime & varchar(25) & Yes & NULL \\ \hline 
+LoginId & int(11) & Yes & NULL \\ \hline 
+Active & tinyint(3) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblfacilitycharge}
+
+\begin{tabular}{|p{0.5in}|p{0.6in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+RoomId & int(11) & Yes & NULL \\ \hline 
+CustomerId & int(11) & Yes & NULL \\ \hline 
+Date & datetime & Yes & NULL \\ \hline 
+Chargre & decimal(19,4) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblfacilitymaster}
+
+\begin{tabular}{|p{0.6in}|p{0.6in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+\textbf{\textit{FacilityId}} & int(11) & No &  \\ \hline 
+FacilityType & varchar(50) & Yes & NULL \\ \hline 
+Charge & decimal(19,4) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblfoodcharge}
+
+\begin{tabular}{|p{0.5in}|p{0.6in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+RoomId & int(11) & Yes & NULL \\ \hline 
+CustomerId & int(11) & Yes & NULL \\ \hline 
+Date & datetime & Yes & NULL \\ \hline 
+Charge & decimal(19,4) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblfoodmaster}
+
+\begin{tabular}{|p{0.6in}|p{0.6in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+\textbf{\textit{FoodId}} & int(11) & No &  \\ \hline 
+FoodName & varchar(50) & Yes & NULL \\ \hline 
+FoodCharge & decimal(19,4) & Yes & NULL \\ \hline 
+Active & tinyint(3) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblguestpersonalinfo}
+
+\begin{tabular}{|p{0.6in}|p{0.6in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+\textbf{\textit{CustomerId}} & int(11) & No &  \\ \hline 
+Name & varchar(50) & Yes & NULL \\ \hline 
+Address & varchar(150) & Yes & NULL \\ \hline 
+Phone & varchar(20) & Yes & NULL \\ \hline 
+Email & varchar(50) & Yes & NULL \\ \hline 
+LoginId & int(11) & Yes & NULL \\ \hline 
+Active & tinyint(3) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tbllaundarycharge}
+
+\begin{tabular}{|p{0.5in}|p{0.6in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+RoomId & int(11) & Yes & NULL \\ \hline 
+CustomerId & int(11) & Yes & NULL \\ \hline 
+Date & datetime & Yes & NULL \\ \hline 
+ClotheNo & int(11) & Yes & NULL \\ \hline 
+Charge & decimal(19,4) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tbllaundarymaster}
+
+\begin{tabular}{|p{0.8in}|p{0.6in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+Id & int(11) & No &  \\ \hline 
+ChargePerClothe & decimal(19,4) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblloginmaster}
+
+\begin{tabular}{|p{0.5in}|p{0.5in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+\textbf{\textit{LoginId}} & int(11) & No &  \\ \hline 
+User\_Name & varchar(50) & Yes & NULL \\ \hline 
+Password & varchar(50) & Yes & NULL \\ \hline 
+RoleId & int(11) & Yes & NULL \\ \hline 
+Active & tinyint(3) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblpaymentmode}
+
+\begin{tabular}{|p{0.7in}|p{0.5in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+\textbf{\textit{PaymentId}} & int(11) & No &  \\ \hline 
+PaymentMode & varchar(15) & Yes & NULL \\ \hline 
+Description & varchar(80) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblphonecharge}
+
+\begin{tabular}{|p{0.5in}|p{0.6in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+RoomId & int(11) & Yes & NULL \\ \hline 
+CustomerId & int(11) & Yes & NULL \\ \hline 
+Date & datetime & Yes & NULL \\ \hline 
+Duration & int(11) & Yes & NULL \\ \hline 
+Charge & decimal(19,4) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblphonemaster}
+
+\begin{tabular}{|p{0.5in}|p{0.6in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+\textbf{\textit{CallId}} & int(11) & No &  \\ \hline 
+CallType & varchar(50) & Yes & NULL \\ \hline 
+CallCharge & decimal(19,4) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblpurchaseitem}
+
+\begin{tabular}{|p{0.6in}|p{0.6in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+\textbf{\textit{PurchaseId}} & int(11) & No &  \\ \hline 
+PurchaseItem & varchar(50) & Yes & NULL \\ \hline 
+Date & datetime & Yes & NULL \\ \hline 
+Quantity & int(11) & Yes & NULL \\ \hline 
+Amount & decimal(19,4) & Yes & NULL \\ \hline 
+TotCharge & decimal(19,4) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblrolemaster}
+
+\begin{tabular}{|p{0.5in}|p{0.5in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+\textbf{\textit{RoleId}} & int(11) & No &  \\ \hline 
+RoleName & varchar(50) & Yes & NULL \\ \hline 
+Description & varchar(50) & Yes & NULL \\ \hline 
+Active & tinyint(3) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblroommaster}
+
+\begin{tabular}{|p{0.6in}|p{0.6in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+\textbf{\textit{RoomId}} & int(11) & No &  \\ \hline 
+RoomName & varchar(60) & Yes & NULL \\ \hline 
+RoomType & varchar(50) & Yes & NULL \\ \hline 
+RoomCharge & decimal(19,4) & Yes & NULL \\ \hline 
+Status & varchar(20) & Yes & NULL \\ \hline 
+Active & tinyint(3) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblroomrequest}
+
+\begin{tabular}{|p{0.9in}|p{0.6in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+\textbf{\textit{RequestId}} & int(11) & No &  \\ \hline 
+Name & varchar(50) & Yes & NULL \\ \hline 
+Address & varchar(150) & Yes & NULL \\ \hline 
+Phone & varchar(20) & Yes & NULL \\ \hline 
+Email & varchar(50) & Yes & NULL \\ \hline 
+RoomId & int(11) & Yes & NULL \\ \hline 
+BadNo & varchar(25) & Yes & NULL \\ \hline 
+NoOfPerson & int(11) & Yes & NULL \\ \hline 
+RoomRequireDay & int(11) & Yes & NULL \\ \hline 
+RequestDate & datetime & Yes & NULL \\ \hline 
+RoomRequireDate & datetime & Yes & NULL \\ \hline 
+Status & varchar(20) & Yes & NULL \\ \hline 
+\end{tabular}
+
+
+\subsection{Table structure for table tblsaleitem}
+
+\begin{tabular}{|p{0.5in}|p{0.6in}|p{0.2in}|p{0.4in}|} \hline 
+\textbf{Column} & \textbf{Type} & \textbf{Null} & \textbf{Default} \\ \hline 
+\textbf{\textit{SaleId}} & int(11) & No &  \\ \hline 
+SaleItem & varchar(50) & Yes & NULL \\ \hline 
+Date & datetime & Yes & NULL \\ \hline 
+Quantity & int(11) & Yes & NULL \\ \hline 
+Amount & decimal(19,4) & Yes & NULL \\ \hline 
+TotCharge & decimal(19,4) & Yes & NULL \\ \hline 
+\end{tabular}

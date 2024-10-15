@@ -1,0 +1,106 @@
+SK
+   MasterData
+          AddFeature
+           VendorServices
+             VendorServicesTypes
+            VendorServiceSubTypes
+Society
+       AddSociety
+Vendors
+     AddVendor
+...................................................................................
+Society
+ Admin
+ 	Approvals
+ InOutManager
+ AssignNotification
+	AssignRoleFeatures
+          Employee
+               AddEmployee
+			   ViewEmpolyee 
+				AddProperty
+			   ViewProperty
+			   AssignParking
+
+	AddAccountType 
+	AddAssetFacility
+	AddComplaintsType
+	AddDepartment
+	AddDocumentType
+	AddEmployeeType
+	AddEventType
+	AddFlatAdditionalArea
+	AddFlatPremisesType
+	AddHelpline
+	AddNoticeType
+	AddParkingLevel
+	AddParkingSlot
+	AddRoles
+	AddSocietyWing
+	AddUnitType  
+	
+Common
+	AddBankDetails
+	AddDocument
+	MyProfile
+	Notifications
+
+Extras
+	Classified
+	EventAndAnouncement
+	Gallary
+	Notice
+	NoticeBoard
+	Poll
+Property(Owner)
+	Dashbord
+	Invoices
+	MyProfile
+	MyProperty
+	Notifications
+	Requests(send)
+	ViewInvoices
+	ViewSelfPoll
+	ViewNotices
+
+View(By anyone)
+	ViewClassified
+ViewEventAnnouncement
+ViewGallary(all admin??????)
+ViewHelpline(?????????)
+	
+
+Logout
+
+SELECT count(intid) FROM tblclassified WHERE varSocietyId='SKS1915361' andintIsActive=1
+SELECT count(intId) FROM tblrequest WHERE  intIsActive=1 and varStatus='Unapproved' and varSocietyId='SKS1915361'
+SELECT count(intId) FROM tblpoll WHERE intIsActive=1 and varSocietyId='SKS1915361'
+
+SELECT        SUM(varOutstanding) AS outstanding, SUM(varRecieved) AS recieved
+FROM            tblinvoiceforpersonnels
+WHERE        (varSocietyId = 'SKS1915361')
+GROUP BY varSocietyId
+
+
+SELECT count(intId) FROM tblproperty WHERE varSocietyId intIsActive
+
+
+
+
+
+SELECT count(intId) FROM tblsocietypersonnel WHERE 
+
+intSocietyId intIsActive
+
+SELECT        tblclassified.intId, tblclassified.varSocietyId, tblclassified.intRole, tblclassified.varSubject, tblclassified.varDescription, tblclassified.varLocation, tblclassified.varPin, 
+                         tblclassified.varContactName, tblclassified.varMobile, tblclassified.varEmail, tblclassified.varClassifiedImage, DATE_FORMAT(tblclassified.varCreatedDate, 
+                         '%d-%m-%Y') AS varCreatedDate, tblclassified.varCreatedBy, tblclassified.intIsActive, tblclassified.intCountry, tblclassified.intState, tblclassified.intCity,  tblsocietypersonnel.varEmpName
+,
+                         citymaster.CityName, statemaster.StateName, countrymaster.CountryName, rolesmasterculturemap.RoleName
+FROM            tblclassified INNER JOIN
+                         countrymaster ON tblclassified.intCountry = countrymaster.CountryId INNER JOIN
+                         statemaster ON tblclassified.intState = statemaster.StateId INNER JOIN
+                         citymaster ON tblclassified.intCity = citymaster.CityId INNER JOIN
+                         tblsocietypersonnel ON tblclassified.varPersonalId = tblsocietypersonnel.intEmpCode INNER JOIN
+                         rolesmasterculturemap ON tblsocietypersonnel.intRole = rolesmasterculturemap.RoleId
+WHERE        (tblclassified.intIsActive = 1) AND (tblclassified.varSocietyId = 'SKS1915361')

@@ -1,0 +1,299 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using SocietyKatta.App_Code.BAL.Society.MasterData;
+using SocietyKatta.App_Code.BAL.Users;
+using SocietyKatta.App_Code.BAL;
+using System.Data;
+
+public partial class Society_Extras_Classified : System.Web.UI.Page
+{
+    DatabaseConnection dbc = new DatabaseConnection();RegexUtilities rex = new RegexUtilities();
+    static string EditPersonalId = string.Empty;
+    static string Employeid = string.Empty;
+    static int EditTypeId = 0;
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            getListViewMasterData();
+            getCountryData();
+        }
+    }
+    public void getCountryData()
+    {
+        try
+        {
+            ddlCountry.DataSource = dbc.GetCountryMasterData();
+            ddlCountry.DataTextField = "CountryName";
+            ddlCountry.DataValueField = "CountryId";
+            ddlCountry.DataBind();
+            ddlCountry.Items.Insert(0, new ListItem(":: Select Country ::", ""));
+        }
+        catch (Exception ex)
+        {
+            string exp = ex.Message;
+        }
+
+    }
+
+    protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            ddlState.DataSource = dbc.GetstateMasterDataFromCountryId(Convert.ToInt32(ddlCountry.SelectedValue));
+            ddlState.DataTextField = "StateName";
+            ddlState.DataValueField = "StateId";
+            ddlState.DataBind();
+            ddlState.Items.Insert(0, new ListItem(":: Select State ::", ""));
+        }
+        catch (Exception ex)
+        {
+            string exp = ex.Message;
+        }
+
+    }
+    protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            ddlCity.DataSource = dbc.GetCityMasterDataFromStateId(Convert.ToInt32(ddlState.SelectedValue));
+            ddlCity.DataTextField = "CityName";
+            ddlCity.DataValueField = "CityId";
+            ddlCity.DataBind();
+            ddlCity.Items.Insert(0, new ListItem(":: Select City ::", ""));
+        }
+        catch (Exception ex)
+        {
+            string exp = ex.Message;
+        }
+    }
+
+    protected void btnUpdate_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            int contentLength = fupProPic.PostedFile.ContentLength;//You may need it for validation
+            string contentType = fupProPic.PostedFile.ContentType;//You may need it for validation
+            string fileName = EditPersonalId + " " + fupProPic.PostedFile.FileName;//fupProPic.PostedFile.FileName;
+
+            if (contentLength != 0)
+            {
+                string myStr = ImgProfile.ImageUrl;
+                string[] ssize = myStr.Split('/');
+                fupProPic.PostedFile.SaveAs(Server.MapPath("~/Society/Media/Classified/") + fileName);
+
+                int Update_ok = dbc.update_tblclassified(Convert.ToInt32(EditTypeId), txtTitle.Text.Replace("'", "\\'"), txtDescription.Text.Replace("'", "\\'"), txtEventLocation.Text.Replace("'", "\\'"), Convert.ToInt32(ddlCountry.SelectedValue), Convert.ToInt32(ddlState.SelectedValue), Convert.ToInt32(ddlCity.SelectedValue), txtPinZip.Text.Replace("'", "\\'"), txtEContactName.Text.Replace("'", "\\'"), txtEMobile.Text.Replace("'", "\\'"), txtEEmail.Text.Replace("'", "\\'"), fileName, 0);
+
+                if (Update_ok == 1)
+                {
+                    MessageDisplay(Resources.Messages.Updated, "alert alert-success");
+                    clear();
+                }
+                else
+                {
+                    MessageDisplay(Resources.Messages.NotUpdated, "alert alert-danger");
+                }
+            }
+            else
+            {
+                string[] imgname = ImgProfile.ImageUrl.Split('/');
+                int Update_ok = dbc.update_tblclassified(Convert.ToInt32(EditTypeId), txtTitle.Text.Replace("'", "\\'"), txtDescription.Text.Replace("'", "\\'"), txtEventLocation.Text.Replace("'", "\\'"), Convert.ToInt32(ddlCountry.SelectedValue), Convert.ToInt32(ddlState.SelectedValue), Convert.ToInt32(ddlCity.SelectedValue), txtPinZip.Text.Replace("'", "\\'"), txtEContactName.Text.Replace("'", "\\'"), txtEMobile.Text.Replace("'", "\\'"), txtEEmail.Text.Replace("'", "\\'"), imgname[4], 0);
+
+                if (Update_ok == 1)
+                {
+                    MessageDisplay(Resources.Messages.Updated, "alert alert-success");
+                    clear();
+                }
+                else
+                {
+                    MessageDisplay(Resources.Messages.NotUpdated, "alert alert-danger");
+                }
+            }
+            btnSubmit.Visible = true;
+            btnUpdate.Visible = false;
+
+            EditTypeId = 0;
+            getListViewMasterData();
+        }
+        catch (Exception ex)
+        {
+            MessageDisplay(Resources.ErrorMessages.SomeError, "alert alert-danger");
+        }
+    }
+    protected void OnPagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+    {
+        try
+        {
+            this.DataPager1.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+
+            this.getListViewMasterData();
+        }
+        catch (Exception ex)
+        {
+            string exp = ex.Message;
+        }
+    }
+    protected void lstType_ItemCommand(object sender, ListViewCommandEventArgs e)
+    {
+        try
+        {
+            if (e.CommandName == "Edits")
+            {
+
+                btnUpdate.Visible = true;
+                btnSubmit.Visible = false;
+                dbc.con1.Close();
+                dbc.con1.Open();
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand("SELECT intId, varSocietyId, varPersonalId, intRole, varSubject, varDescription, varLocation, intCountry, intState, intCity, varPin, varContactName, varMobile, varEmail, varClassifiedImage, varCreatedDate, varCreatedBy, intIsActive FROM tblclassified where intId=" + Convert.ToInt32(e.CommandArgument.ToString()) + " ", dbc.con1);
+
+                dbc.dr = cmd.ExecuteReader();
+                if (dbc.dr.Read())
+                {
+                    EditTypeId = Convert.ToInt32(dbc.dr["intId"].ToString());
+                    EditPersonalId = (dbc.dr["varPersonalId"].ToString());
+                    txtTitle.Text = dbc.dr["varSubject"].ToString();
+                    txtDescription.Text = dbc.dr["varDescription"].ToString();
+                    txtEventLocation.Text = dbc.dr["varLocation"].ToString();
+
+                    txtPinZip.Text = dbc.dr["varPin"].ToString();
+                    txtEContactName.Text = dbc.dr["varContactName"].ToString();
+                    txtEMobile.Text = dbc.dr["varMobile"].ToString();
+                    txtEEmail.Text = dbc.dr["varEmail"].ToString();
+
+                    ddlCountry.SelectedIndex = Convert.ToInt32(dbc.dr["intCountry"].ToString());
+                    ddlState.DataSource = dbc.GetstateMasterDataFromCountryId(Convert.ToInt32(dbc.dr["intCountry"].ToString()));
+
+                    ddlState.DataTextField = "StateName";
+                    ddlState.DataValueField = "StateId"; ddlState.DataBind();
+                    ddlState.SelectedValue = dbc.dr["intState"].ToString();
+                    ddlCity.DataSource = dbc.GetCityMasterDataFromStateId(Convert.ToInt32(dbc.dr["intState"].ToString()));
+
+                    ddlCity.DataTextField = "CityName";
+                    ddlCity.DataValueField = "CityId"; ddlCity.DataBind();
+
+                    ddlCity.SelectedValue = dbc.dr["intCity"].ToString();
+                    ImgProfile.ImageUrl = "~/Society/Media/Classified/" + dbc.dr["varClassifiedImage"].ToString();
+                }
+                dbc.con1.Close();
+            }
+        }
+        catch (Exception ex)
+        {
+            dbc.con.Close();
+            string exp = ex.Message;
+        }
+    }
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            string personel = string.Empty;
+            if (rex.DecryptString(Request.Cookies["LoggedRoleId"].Value) == dbc.GetPropertyOwnerRoleIdBySocietyId(rex.DecryptString(Request.Cookies["CookieSocietyId"].Value), "Property Owner"))
+            {
+                personel = rex.DecryptString(Request.Cookies["CookiePropertyId"].Value);
+            }
+            else
+            {
+                personel = rex.DecryptString(Request.Cookies["LoggedEmpId"].Value);
+            }
+            int contentLength = fupProPic.PostedFile.ContentLength;//You may need it for validation
+            string contentType = fupProPic.PostedFile.ContentType;//You may need it for validation
+            string fileName = personel + " " + fupProPic.PostedFile.FileName;//fupProPic.PostedFile.FileName;
+            if (contentLength != 0)
+            {
+                string myStr = ImgProfile.ImageUrl;
+                string[] ssize = myStr.Split('/');
+                fupProPic.PostedFile.SaveAs(Server.MapPath("~/Society/Media/Classified/") + fileName);
+            }
+            else
+            {
+                fileName = "NoProfile.png";
+            }
+            int insert_ok = dbc.insert_tblclassified(rex.DecryptString(Request.Cookies["CookieSocietyId"].Value), personel, Convert.ToInt32(rex.DecryptString(Request.Cookies["LoggedRoleId"].Value)), txtTitle.Text.Replace("'", "\\'"), txtDescription.Text.Replace("'", "\\'"), txtEventLocation.Text.Replace("'", "\\'"), Convert.ToInt32(ddlCountry.SelectedValue), Convert.ToInt32(ddlState.SelectedValue), Convert.ToInt32(ddlCity.SelectedValue), txtPinZip.Text.Replace("'", "\\'"), txtEContactName.Text.Replace("'", "\\'"), txtEMobile.Text.Replace("'", "\\'"), txtEEmail.Text.Replace("'", "\\'"), fileName, DateTime.UtcNow.AddMinutes(330).ToString("yyyy-MM-dd"), personel,0);
+            if (insert_ok == 1)
+            {
+                MessageDisplay(Resources.ErrorMessages.ClassifiedApproval, "alert alert-success");
+                clear();
+            }
+            else
+            {
+                MessageDisplay(Resources.ErrorMessages.IncorrectValues, "alert alert-danger");
+            }
+            clear();
+            getListViewMasterData();
+        }
+        catch (Exception ex)
+        {
+            string exp = ex.Message;
+        }
+    }
+
+    public void getListViewMasterData()
+    {
+        try
+        {
+            DataTable dt = new DataTable();
+            if (rex.DecryptString(Request.Cookies["LoggedRoleId"].Value) == dbc.GetPropertyOwnerRoleIdBySocietyId(rex.DecryptString(Request.Cookies["CookieSocietyId"].Value), "Property Owner"))
+            {
+                EditPersonalId = rex.DecryptString(Request.Cookies["CookiePropertyId"].Value);
+                dbc.con.Open();
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand();
+                cmd = new MySql.Data.MySqlClient.MySqlCommand("SELECT intId, varSocietyId, varPersonalId, intRole, varSubject, varDescription, varLocation, intCountry, intState, intCity, varPin, varContactName, varMobile, varEmail, varClassifiedImage, varCreatedDate, varCreatedBy, intIsActive,status FROM tblclassified WHERE varPersonalId='" + rex.DecryptString(Request.Cookies["CookiePropertyId"].Value) + "'", dbc.con);
+                MySql.Data.MySqlClient.MySqlDataAdapter adp = new MySql.Data.MySqlClient.MySqlDataAdapter(cmd);
+                adp.Fill(dt);
+
+                lstType.DataSource = dt;
+                lstType.DataBind();
+                dbc.con.Close();
+            }
+            else
+            {
+                EditPersonalId = rex.DecryptString(Request.Cookies["LoggedEmpId"].Value);
+                dbc.con.Open();
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand();
+                cmd = new MySql.Data.MySqlClient.MySqlCommand("SELECT intId, varSocietyId, varPersonalId, intRole, varSubject, varDescription, varLocation, intCountry, intState, intCity, varPin, varContactName, varMobile, varEmail, varClassifiedImage, varCreatedDate, varCreatedBy, intIsActive,status FROM tblclassified WHERE varPersonalId='" + rex.DecryptString(Request.Cookies["LoggedEmpId"].Value) + "'", dbc.con);
+                MySql.Data.MySqlClient.MySqlDataAdapter adp = new MySql.Data.MySqlClient.MySqlDataAdapter(cmd);
+                adp.Fill(dt);
+
+                lstType.DataSource = dt;
+                lstType.DataBind();
+                dbc.con.Close();
+
+            }
+        }
+        catch (Exception ex)
+        {
+            //MessageDisplay(Resources.ErrorMessages.IncorrectValues, "alert alert-danger");
+        }
+    }
+
+    public void clear()
+    {
+        ddlCountry.SelectedIndex = 0;
+        ddlState.Items.Clear();
+        ddlState.Items.Insert(0, new ListItem(":: Select State ::", ""));
+
+        ddlCity.Items.Clear();
+        ddlCity.Items.Insert(0, new ListItem(":: Select City ::", ""));
+
+        txtDescription.Text = "";
+        txtEContactName.Text = "";
+        txtEEmail.Text = "";
+        txtEMobile.Text = "";
+        txtEventLocation.Text = "";
+        txtPinZip.Text = "";
+
+        txtTitle.Text = "";
+        ImgProfile.ImageUrl = "~/Society/Media/Classified/NoProfile.png";
+    }
+    void MessageDisplay(string message, string cssClass)
+    {
+        lblMessage.Text = message;
+        divMessage.Attributes.Add("class", cssClass);
+    }
+}

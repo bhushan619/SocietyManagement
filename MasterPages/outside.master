@@ -1,0 +1,481 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="outside.master.cs" Inherits="MasterPages_outside" %>
+ 
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+	<!--<![endif]-->
+
+	<head runat="server">
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="description" content="SocieyKatta.. One stop solution for all Housing Services..">
+		<meta name="author" content="anuvaasoft.com">
+
+		<!-- Mobile Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="../Designs/Outside/images/favicon.ico">
+
+		<!-- Web Fonts -->
+		<link href='../Designs/Outside/fonts.googleapis.com/css.css' rel='stylesheet' type='text/css'>
+		<link href='../Designs/Outside/fonts.googleapis.com/css_2.css' rel='stylesheet' type='text/css'>
+		<link href='../Designs/Outside/fonts.googleapis.com/css_3.css' rel='stylesheet' type='text/css'>
+		<link href='../Designs/Outside/fonts.googleapis.com/css_4.css' rel='stylesheet' type='text/css'>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../Designs/Outside/bootstrap/css/bootstrap.css" rel="stylesheet">
+         
+		<!-- Font Awesome CSS -->
+		<link href="../Designs/Outside/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+        
+		<!-- Fontello CSS -->
+		<link href="../Designs/Outside/fonts/fontello/css/fontello.css" rel="stylesheet">
+
+		<!-- Plugins -->
+		<link href="../Designs/Outside/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+		<link href="../Designs/Outside/plugins/rs-plugin/css/settings.css" rel="stylesheet">
+		<link href="../Designs/Outside/css/animations.css" rel="stylesheet">
+		<link href="../Designs/Outside/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+		<link href="../Designs/Outside/plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
+		<link href="../Designs/Outside/plugins/hover/hover-min.css" rel="stylesheet">		
+		
+		<!-- The Project core CSS file -->
+		<link href="../Designs/Outside/css/style.css" rel="stylesheet" >
+		<!-- Style Switcher Styles (Remove these two lines) -->
+		<link href="../Designs/Outside/index-portfolio.html#" data-style="styles" rel="stylesheet">
+		<link href="../Designs/Outside/style-switcher/style-switcher.css" rel="stylesheet">
+
+		<!-- Custom css --> 
+		<link href="../Designs/Outside/css/custom.css" rel="stylesheet">
+                 <script type="text/javascript">
+            $(function ($) {
+                var addToAll = false;
+                var gallery = true;
+                var titlePosition = 'inside';
+                $(addToAll ? 'img' : 'img.fancybox').each(function () {
+                    var $this = $(this);
+                    var title = $this.attr('title');
+                    var src = $this.attr('data-big') || $this.attr('src');
+                    var a = $('<a href="#" class="fancybox"></a>').attr('href', src).attr('title', title);
+                    $this.wrap(a);
+                });
+                if (gallery)
+                    $('a.fancybox').attr('rel', 'fancyboxgallery');
+                $('a.fancybox').fancybox({
+                    titlePosition: titlePosition
+                });
+            });
+            $.noConflict();
+
+            function checkText(el) {
+                var ex = new RegExp("^[a-zA-Z ]+$");
+
+                if (ex.test(el.value) == false) {
+                    el.value = el.value.substring(0, el.value.length - 1);
+                }
+            }
+            function checkOtherMobWithSemicolon(el) {
+                var ex = new RegExp("^[0-9;]+$");
+
+                if (ex.test(el.value) == false) {
+                    el.value = el.value.substring(0, el.value.length - 1);
+                }
+            }
+            function checkTextNum(el) {
+                var ex = new RegExp("^[a-zA-Z0-9 ]+$");
+
+                if (ex.test(el.value) == false) {
+                    el.value = el.value.substring(0, el.value.length - 1);
+                }
+            }
+
+            function validateEmail(field) {
+                //var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}$/;
+                var regex = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
+                return (regex.test(field)) ? true : false;
+            }
+
+           
+            function checkDec(el) {
+                var ex = /^\d*\.?\d{0,2}$/;
+                if (ex.test(el.value) == false) {
+                    el.value = el.value.substring(0, el.value.length - 1);
+                }
+            }
+            //logout code by cookie disable browser back button
+            //function disable() {
+            //    window.history.forward();
+
+            //}
+            //disable();
+            //logout code by cookie disable browser back button
+</script> 
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-79656658-1', 'auto');
+            ga('send', 'pageview');
+
+</script>
+	</head>
+
+	<!-- body classes:  -->
+	<!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
+	<!-- "pattern-1 ... pattern-9": background patterns for boxed layout mode e.g. <body class="boxed pattern-1"> -->
+	<!-- "transparent-header": makes the header transparent and pulls the banner to top -->
+	<!-- "gradient-background-header": applies gradient background to header -->
+	<!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
+	<body class=" no-trans  transparent-header gradient-background-header ">
+        
+		<!-- scrollToTop -->
+		<!-- ================ -->
+		<div class="scrollToTop circle"><i class="icon-up-open-big"></i></div>
+		
+		<!-- page wrapper start -->
+		<!-- ================ -->
+		<div class="page-wrapper">
+		
+			<!-- header-container start -->
+			<div class="header-container">
+				
+				<!-- header start -->
+				<!-- classes:  -->
+				<!-- "fixed": enables fixed navigation mode (sticky menu) e.g. class="header fixed clearfix" -->
+				<!-- "dark": dark version of header e.g. class="header dark clearfix" -->
+				<!-- "full-width": mandatory class for the full-width menu layout -->
+				<!-- "centered": mandatory class for the centered logo layout -->
+				<!-- ================ --> 
+				<header class="header  fixed fixed-before  dark clearfix">
+					
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3 ">
+								<!-- header-left start -->
+								<!-- ================ -->
+								<div class="header-left clearfix">
+
+									<!-- logo -->
+									<div id="logo" class="logo">
+								<asp:HyperLink NavigateUrl="~/Home/Default.aspx" ID="hyHomeLogo" runat="server"> <asp:Image ID="Image1" runat="server" ImageUrl="~/Designs/img/logo-alt-out.png"/> </asp:HyperLink>
+										</div>
+
+									<!-- name-and-slogan -->
+									<div class="site-slogan">
+										
+									</div>
+									
+								</div>
+								<!-- header-left end -->
+
+							</div>
+							<div class="col-md-9">
+					
+								<!-- header-right start -->
+								<!-- ================ -->
+								<div class="header-right clearfix">
+									
+								<!-- main-navigation start -->
+								<!-- classes: -->
+								<!-- "onclick": Makes the dropdowns open on click, this the default bootstrap behavior e.g. class="main-navigation onclick" -->
+								<!-- "animated": Enables animations on dropdowns opening e.g. class="main-navigation animated" -->
+								<!-- "with-dropdown-buttons": Mandatory class that adds extra space, to the main navigation, for the search and cart dropdowns -->
+								<!-- ================ -->
+								<div class="main-navigation  animated with-dropdown-buttons">
+
+									<!-- navbar start -->
+									<!-- ================ -->
+									<nav class="navbar navbar-default" role="navigation">
+										<div class="container-fluid">
+
+											<!-- Toggle get grouped for better mobile display -->
+											<div class="navbar-header">
+												<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+													<span class="sr-only">Toggle navigation</span>
+													<span class="icon-bar"></span>
+													<span class="icon-bar"></span>
+													<span class="icon-bar"></span>
+												</button>
+												
+											</div>
+
+											<!-- Collect the nav links, forms, and other content for toggling -->
+											<div class="collapse navbar-collapse" id="navbar-collapse-1">
+												<!-- main-menu -->
+												<ul class="nav navbar-nav "> 
+                                                  <li  > <asp:HyperLink ID="hyHome" runat="server" NavigateUrl="~/Home/Default.aspx" Text="Home" Visible="false"></asp:HyperLink>
+                                                       
+                                                  </li>
+                                                    	<li class="dropdown " id="Knownus" runat="server">
+														<a class="dropdown-toggle" data-toggle="dropdown" >Know Us</a>
+														        <ul class="dropdown-menu">
+															               <li  > <asp:HyperLink ID="hyabout" runat="server" NavigateUrl="~/Home/Default.aspx#aboutus" Text="About Us"></asp:HyperLink></li>
+                                                                      <li  > <asp:HyperLink ID="hyContact" runat="server" NavigateUrl="~/Home/Contact.aspx" Text="Contact"></asp:HyperLink></li>
+                                                         <li> <asp:HyperLink ID="hyBlog" runat="server" NavigateUrl="~/Home/Blog.aspx" Text="Blog" Visible="false"></asp:HyperLink>
+                                                      </li>
+                                                                    </ul>
+                                                            </li>
+                                                    <li class="dropdown ">
+														<a class="dropdown-toggle" data-toggle="dropdown" >Services</a>
+														        <ul class="dropdown-menu">
+                                                                          <li> <asp:HyperLink ID="hymanager" runat="server" NavigateUrl="~/Home/KattaManager.aspx" Text="Katta Manager" Visible="false"></asp:HyperLink>    </li>
+															               <li>     <asp:HyperLink ID="hyVendor" runat="server" NavigateUrl="~/Home/KattaVendor.aspx" Text="Katta Vendor" Visible="false"></asp:HyperLink></li>
+                                                                       <li> <asp:HyperLink ID="hyServices" runat="server" NavigateUrl="~/Home/KattaHealthcare.aspx" Text="Katta Healthcare" Visible="false"></asp:HyperLink>    </li>
+
+                                                                    </ul>
+                                                            </li>
+                                                 
+                                             
+                                                  <li class="dropdown " id="joinus" runat="server">
+														<a class="dropdown-toggle" data-toggle="dropdown" >Join us</a>
+														        <ul class="dropdown-menu">
+                                                                            <li  > <asp:HyperLink ID="hyEnquiry" runat="server" NavigateUrl="~/Home/Enquiry.aspx" Text="Partner"></asp:HyperLink></li>
+                                                                       <li  > <asp:HyperLink ID="hysales" runat="server" NavigateUrl="~/Home/Sales.aspx" Text="Ask Quote"></asp:HyperLink></li>
+                                                                     <li class=" ">  <asp:HyperLink ID="hycareer" runat="server" NavigateUrl="~/Home/Career.aspx" Text="Career" Visible="false"></asp:HyperLink>       </li>
+                                                                    </ul>
+                                                            </li>
+                                                 	   
+                                                   
+                                                        <li  >  <asp:HyperLink ID="hyOrders" runat="server" NavigateUrl="~/Home/ViewOrders.aspx"  Text="Orders" Visible="false"></asp:HyperLink>
+                                                      </li>
+                                                            
+                                                   
+                                                        <li  > 
+                                                            <asp:HyperLink ID="hyProfile" runat="server"   Text="My Profile"  Visible="false"></asp:HyperLink>
+
+                                                        </li>
+                                                      	<li>
+                                                          <asp:HyperLink ID="hyChangePass" runat="server" NavigateUrl="~/Home/ChangePassword.aspx"  Visible="false"> <i class="fa fa-key"></i></asp:HyperLink>
+                                                 	</li> <li  > <asp:HyperLink ID="hyLogin" runat="server" NavigateUrl="~/Home/Login.aspx" Text="Login"></asp:HyperLink>
+                                                                  
+                                                              </li>
+                                                    <li  > 
+                                                        <asp:HyperLink ID="hyLogout" runat="server" NavigateUrl="~/Society/Logout.aspx" Visible="false"> <i class="fa fa-power-off"></i></asp:HyperLink></li>
+                                                 
+												</ul>
+												<!-- main-menu end --> 
+											
+											</div>
+
+										</div>
+									</nav>
+									<!-- navbar end -->
+
+								</div>
+								<!-- main-navigation end -->
+								</div>
+								<!-- header-right end -->
+					
+							</div>
+						</div>
+					</div>
+					
+				</header>
+				<!-- header end -->
+			</div>
+			<!-- header-container end -->
+		 
+		
+			 <form id="form1" runat="server"> 
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder> 
+    </form>
+           
+
+			 
+			<!-- footer start (Add "dark" class to #footer in order to enable dark footer) -->
+			<!-- ================ -->
+			<footer id="footer" class="clearfix">
+
+				<!-- .footer start -->
+				<!-- ================ -->
+				<div class="footer">
+					<div class="container">
+						<div class="footer-inner">
+							<div class="row">
+								<div class="col-md-3">
+									<div class="footer-content">
+										<div class="logo-footer"><asp:Image ID="logofooter" runat="server" ImageUrl="~/Designs/img/logo-big.png" alt="" /></div>
+										<p> </p>
+										<ul class="list-inline mb-20">
+											<li class="text-justify"><i class="text-default fa fa-map-marker  pl-10 pr-5"></i> Flat No. 1, Akshay Chambers, 
+Samarth Colony, Near Prabhat Chowk, 
+Jalgaon Maharashtra (India). </li>
+											<li><i class="text-default fa fa-phone pl-10 pr-5"></i> +91 7066660206</li>
+											<li><a href="mailto:contact@societykatta.com" class="link-dark"><i class="text-default fa fa-envelope-o pl-10 pr-5"></i> contact@societykatta.com</a></li>
+										</ul>
+										<div class="separator-2"></div>
+										<ul class="social-links circle margin-clear animated-effect-1">
+											<li class="facebook"><a target="_blank" href="http://www.facebook.com/Societykatta/"><i class="fa fa-facebook"></i></a></li>
+											<li class="twitter"><a target="_blank" href="http://www.twitter.com/Societykatta/"><i class="fa fa-twitter"></i></a></li>
+											<li class="googleplus"><a target="_blank" href="https://plus.google.com/u/1/103932599965577561100?hl=en"><i class="fa fa-google-plus"></i></a></li>
+											<li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
+										 </ul>
+									</div>
+								</div>
+                                <div class="col-md-3">
+									<div class="footer-content">
+										<h3 class="title">Useful Links</h3>
+										<div class="separator-2"></div>
+										<nav>
+											<ul class="nav nav-pills nav-stacked">  
+                                                <li><a href="Default.aspx">Home</a></li>	
+												<li><a href="KattaManager.aspx">Katta Manager</a></li>											
+												<li><a href="KattaVendor.aspx">Katta Vendor</a></li>
+												<li><a href="KattaHealthcare.aspx">Katta Healthcare</a></li>  
+											
+                                                <li><a href="Career.aspx">Career</a></li>
+                                                 <li><a href="FAQ.aspx">FAQ</a></li> 
+                                                 <li><a href="TermsofServices.aspx">Terms of Services</a></li> 
+											</ul>
+										</nav>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="footer-content">
+										<h2 class="title">Contact Us</h2>
+										<div class="alert alert-success hidden" id="MessageSent2">
+											We have received your message, we will contact you very soon.
+										</div>
+										<div class="alert alert-danger hidden" id="MessageNotSent2">
+											Oops! Something went wrong please refresh the page and try again.
+										</div>
+										<form    class="margin-clear" method="post" action="../Home/cnt.aspx">
+											<div class="form-group has-feedback mb-10">
+												<label class="sr-only" for="name2">Name</label>
+												<input type="text" class="form-control" id="nm" placeholder="Name" name="nm"  onkeyup="checkText(this);" required>
+												<i class="fa fa-user form-control-feedback"></i>
+											</div>
+											<div class="form-group has-feedback mb-10">
+												<label class="sr-only" for="email2">Email address</label>
+												<input type="email" class="form-control" id="eml" placeholder="Enter email" name="eml" required>
+												<i class="fa fa-envelope form-control-feedback"></i>
+											</div>
+											<div class="form-group has-feedback mb-10">
+												<label class="sr-only" for="message2">Message</label>
+												<textarea class="form-control" rows="4" id="adr" placeholder="Message" name="adr"  onkeyup="checkTextNum(this);" required></textarea>
+												<i class="fa fa-pencil form-control-feedback"></i>
+											</div>
+											<input type="submit" value="Send" class=" submit-button btn-sm btn btn-default">
+										</form>
+									</div>
+								</div>
+                                <div class="col-md-3">
+									<div class="footer-content">
+										<h2 class="title">Subscribe</h2>
+										<div class="separator-2"></div>
+										<p>Subscribe for news letter & latest updates </p>
+										<form>
+											<div class="margin-clear form-group has-feedback">
+												<label class="sr-only" for="subscribe">Email address</label>
+												<input type="email" class="form-control" id="subscribe" placeholder="Enter email" name="subscribe" required="">
+												<i class="fa fa-envelope form-control-feedback"></i>
+											</div>
+											<div class="text-right">
+												<button type="submit" class="btn btn-default btn-sm btn-animated">Submit<i class="fa fa-send"></i></button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- .footer end -->
+
+				<!-- .subfooter start -->
+				<!-- ================ -->
+                <div class="dark">
+				<div class="subfooter ">
+					<div class="container ">
+						<div class="subfooter-inner">
+							<div class="row">
+								<div class="col-md-12">
+									<p class="text-center">Copyright © 2016 A Project by <a target="_blank" href="http://anuvaasoft.com">Anuvaa Softech Private Limited</a>. All Rights Reserved</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div></div>
+				<!-- .subfooter end -->
+
+			</footer>
+			<!-- footer end -->
+			
+		</div>
+		<!-- page-wrapper end -->
+
+		<!-- JavaScript files placed at the end of the document so the pages load faster -->
+		<!-- ================================================== -->
+		<!-- Jquery and Bootstap core js files -->
+		<script type="text/javascript" src="../Designs/Outside/plugins/jquery.min.js"></script>
+		<script type="text/javascript" src="../Designs/Outside/bootstrap/js/bootstrap.min.js"></script>
+		<!-- Modernizr javascript -->
+		<script type="text/javascript" src="../Designs/Outside/plugins/modernizr.js"></script>
+		<!-- jQuery Revolution Slider  -->
+		<script type="text/javascript" src="../Designs/Outside/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+		<script type="text/javascript" src="../Designs/Outside/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+		<!-- Isotope javascript -->
+		<script type="text/javascript" src="../Designs/Outside/plugins/isotope/isotope.pkgd.min.js"></script>
+		<!-- Magnific Popup javascript -->
+		<script type="text/javascript" src="../Designs/Outside/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<!-- Appear javascript -->
+		<script type="text/javascript" src="../Designs/Outside/plugins/waypoints/jquery.waypoints.min.js"></script>
+		<!-- Count To javascript -->
+		<script type="text/javascript" src="../Designs/Outside/plugins/jquery.countTo.js"></script>
+		<!-- Parallax javascript -->
+		<script src="../Designs/Outside/plugins/jquery.parallax-1.1.3.js"></script>
+		<!-- Contact form -->
+		<script src="../Designs/Outside/plugins/jquery.validate.js"></script>
+		<!-- Background Video -->
+		<script src="../Designs/Outside/plugins/vide/jquery.vide.js"></script>
+		<!-- Owl carousel javascript -->
+		<script type="text/javascript" src="../Designs/Outside/plugins/owl-carousel/owl.carousel.js"></script>
+		<!-- SmoothScroll javascript -->
+		<script type="text/javascript" src="../Designs/Outside/plugins/jquery.browser.js"></script>
+		<script type="text/javascript" src="../Designs/Outside/plugins/SmoothScroll.js"></script>
+		<!-- Initialization of Plugins -->
+		<script type="text/javascript" src="../Designs/Outside/js/template.js"></script>
+		<!-- Custom Scripts -->
+		<script type="text/javascript" src="../Designs/Outside/js/custom.js"></script>
+		<!-- Color Switcher (Remove these lines) -->
+		<script type="text/javascript" src="../Designs/Outside/style-switcher/style-switcher.js"></script> 
+
+            
+<script type="text/javascript" src="../Designs/plugins/form-daterangepicker/moment.min.js"></script>              			<!-- Moment.js for Date Range Picker -->
+
+<script type="text/javascript" src="../Designs/plugins/form-colorpicker/js/bootstrap-colorpicker.min.js"></script> 			<!-- Color Picker -->
+
+<script type="text/javascript" src="../Designs/plugins/form-daterangepicker/daterangepicker.js"></script>     				<!-- Date Range Picker -->
+<script type="text/javascript" src="../Designs/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>      			<!-- Datepicker -->
+<script type="text/javascript" src="../Designs/plugins/bootstrap-timepicker/bootstrap-timepicker.js"></script>      			<!-- Timepicker -->
+<script type="text/javascript" src="../Designs/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script> <!-- DateTime Picker -->
+
+<script type="text/javascript" src="../Designs/plugins/clockface/js/clockface.js"></script>     								<!-- Clockface -->
+
+
+<script type="text/javascript" src="../Designs/demo/demo-pickers.js"></script>
+        <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/577dfc25dd7fc0d375f2400f/default';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
+	</body>
+</html>
+
